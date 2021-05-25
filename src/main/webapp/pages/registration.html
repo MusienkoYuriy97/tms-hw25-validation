@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+<div th:include="_header.html"></div>
+
+<form action="#" th:action="@{/reg}"  th:object="${regUser}" method="post">
+    <div class="mb-3 row">
+        <label for="username" class="form-label">Username</label>
+        <div class="col-sm-6">
+            <input type="text"  th:field="*{username}" class="form-control" id="username" aria-describedby="emailHelp">
+            <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"/>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="fname" class="form-label">First Name</label>
+        <div class="col-sm-6">
+            <input type="text" th:field="*{fname}" class="form-control" id="fname" aria-describedby="emailHelp">
+            <p th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}"/>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="lname" class="form-label">Last Name</label>
+        <div class="col-sm-6">
+            <input type="text" th:field="*{lname}" class="form-control" id="lname" aria-describedby="emailHelp">
+            <p th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}"/>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="age" class="form-label">Age</label>
+        <div class="col-sm-6">
+            <input type="number"  th:field="*{age}" class="form-control" id="age" aria-describedby="emailHelp")>
+            <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"/>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="password" class="form-label">Password</label>
+        <div class="col-sm-6">
+            <input type="password"  th:field="*{password}" class="form-control" id="password">
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"/>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<p th:text="${message}"></p>
+</body>
+</html>
